@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音声入力テキストエディタ - レコパーさん</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="レコパーさんロゴ01.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="レコパーさんロゴ01.jpg">
+</head>
+<body>
+    <div class="container">
+        <img src="レコパーさんロゴ01.jpg" alt="レコパーさん ロゴ" class="logo-image">
+
+        <div class="top-buttons">
+            <button id="ai-convert-button" class="btn">AI変換</button>
+            <button id="prompt-input-button" class="btn">プロンプト入力</button>
+        </div>
+
+        <textarea id="text-box" placeholder="ここに音声入力または手動入力したテキストが表示されます..."></textarea>
+
+        <button id="mic-button" class="mic-btn">
+            <i class="fas fa-microphone"></i>
+        </button>
+        <p id="status" class="status-text"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

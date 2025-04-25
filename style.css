@@ -1,0 +1,160 @@
+/* 基本スタイル */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f8ff; /* 淡い青 (AliceBlue) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 画面全体の高さを確保 */
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    width: 90%; /* スマートフォンでの幅 */
+    max-width: 800px; /* PCでの最大幅 */
+    /* ロゴ追加のため高さを自動調整に変更 */
+    /* height: 90vh; */
+    max-height: 95vh; /* 最大高さを制限 */
+    padding: 20px;
+    background-color: #ffffff; /* 白 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* paddingを含めたサイズ計算 */
+    overflow-y: auto; /* 内容が多い場合にスクロールを許可 */
+}
+
+/* ロゴ画像スタイル */
+.logo-image {
+    max-width: 150px; /* ロゴの最大幅を制限 */
+    height: auto;     /* 高さは自動調整 */
+    margin-bottom: 20px; /* 下の要素との間隔 */
+}
+
+/* 上部ボタンエリア */
+.top-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* ボタンを中央揃え */
+    gap: 15px; /* ボタン間のスペース */
+    margin-bottom: 20px; /* テキストボックスとの間隔 */
+    flex-shrink: 0; /* コンテナの高さが縮んでもボタンエリアは縮まないように */
+}
+
+/* ボタン共通スタイル */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #add8e6; /* 淡い青 (LightBlue) */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #87ceeb; /* 少し濃い青 (SkyBlue) */
+}
+
+/* テキストボックス */
+#text-box {
+    width: 100%;
+    /* 高さを %指定ではなく flex-grow で確保するように変更 */
+    /* height: 70%; */
+    flex-grow: 1; /* 利用可能なスペースを埋めるように伸びる */
+    min-height: 200px; /* 最小高さを設定 */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none; /* リサイズ不可 */
+    box-sizing: border-box; /* paddingを含めたサイズ計算 */
+    margin-bottom: 20px; /* マイクボタンとの間隔 */
+}
+
+/* マイクボタン */
+.mic-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 円形にする */
+    border: none;
+    background-color: #add8e6; /* 淡い青 (LightBlue) */
+    color: #ffffff; /* アイコンの色 (白) */
+    font-size: 24px; /* アイコンサイズ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* コンテナの高さが縮んでもボタンは縮まないように */
+}
+
+.mic-btn:hover {
+    background-color: #87ceeb; /* 少し濃い青 (SkyBlue) */
+}
+
+.mic-btn:active {
+    transform: scale(0.95); /* クリック時に少し小さくする */
+}
+
+/* 録音中スタイル */
+.mic-btn.recording {
+    background-color: #ff6347; /* トマト色 (録音中) */
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 99, 71, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 99, 71, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 99, 71, 0); }
+}
+
+/* ステータス表示 */
+.status-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    min-height: 20px; /* 高さを確保してレイアウト崩れを防ぐ */
+    flex-shrink: 0; /* コンテナの高さが縮んでも縮まないように */
+}
+
+/* レスポンシブ対応 (例: 幅が600px以下の場合) */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        /* height: 95vh; */ /* 高さは自動調整 */
+        max-height: 95vh;
+        padding: 15px;
+    }
+
+    .logo-image {
+        max-width: 120px; /* スマホでは少し小さく */
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    #text-box {
+        font-size: 14px;
+        padding: 10px;
+        min-height: 150px; /* スマホでの最小高さを調整 */
+    }
+
+    .mic-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .status-text {
+        font-size: 12px;
+    }
+}
