@@ -166,11 +166,10 @@ aiConvertButton.addEventListener('click', async () => {
 
     if (result && result.success) {
         // API成功時の処理 (例: 変換後のテキストでテキストボックスを更新)
-        // textBox.value = result.convertedText; // 実際のAPIレスポンスに合わせて変更
+        // ここに表示したい任意の文字列を設定
+        const aiResultText = "AI変換結果の例：これはAIが変換したテキストです。";
+        textBox.value = aiResultText;
         console.log("AI変換API呼び出し成功");
-
-        // ★★★ 任意の文字列を表示する処理を追加 ★★★
-        textBox.value = "AI変換が完了しました！"; // ここに表示したい文字列を入れる
     } else {
         // API失敗時の処理
         console.log("AI変換API呼び出し失敗");
